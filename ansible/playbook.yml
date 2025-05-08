@@ -1,0 +1,27 @@
+---
+- hosts : on_prem
+  become: yes
+  tasks:
+    - name: Install docker
+      apt: docker.io
+      state: present 
+      update_cache: yes
+    - name: start docker service
+      state: started
+      enabled: yes 
+
+
+    - name: Install git
+      apt:
+        name: git
+        state: present 
+        update_cache: yes 
+
+    - name: Clone repository
+      git:
+        repo: 'https://github.com/gauravkumar1430/app-repo.git'
+        dest: /app 
+        version: main 
+              
+      
+      
