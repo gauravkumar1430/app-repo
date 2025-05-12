@@ -18,6 +18,6 @@
         state: present
     - name: Clone repository
       git:
-        repo: 'https://github.com/yourusername/app-repo.git'
+        repo: 'https://github.com/gauravkumar1430/app-repo.git'
         dest: /app
         version: main
