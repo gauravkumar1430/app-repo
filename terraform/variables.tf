@@ -1,6 +1,5 @@
 variable "db_password" {
-    description = "RDS Database password"
-    type = string
-    sensitive = true
-  
+  description = "RDS database password"
+  type = string
+  sensitive   = true
 }
