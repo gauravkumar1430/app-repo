@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-app
-  namespace: default
+  namespace: flask-app
 spec:
   replicas: 3
   selector:
@@ -16,7 +16,7 @@ spec:
       containers:
       - name: flask-app
         image: ghcr.io/gauravkumar1430/flask-app:latest
-        ports: 
+        ports:
         - containerPort: 5000
         env:
         - name: DB_NAME
@@ -39,3 +39,10 @@ spec:
             secretKeyRef:
               name: db-credentials
               key: db_host
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
