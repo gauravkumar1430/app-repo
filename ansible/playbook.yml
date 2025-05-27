@@ -2,11 +2,13 @@
 - hosts: on_prem
   become: yes
   tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
     - name: Install Docker
       apt:
         name: docker.io
         state: present
-        update_cache: yes
     - name: Start Docker service
       service:
         name: docker
@@ -21,3 +23,4 @@
         repo: 'https://github.com/gauravkumar1430/app-repo.git'
         dest: /app
         version: main
+
